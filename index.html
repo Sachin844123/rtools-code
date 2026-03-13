@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R Programming IDE - Practicals</title>
+    <link rel="stylesheet" href="landing.css">
+</head>
+<body>
+    <div class="ide-container">
+        <!-- Top Menu Bar -->
+        <div class="menu-bar">
+            <div class="menu-left">
+                <span class="app-title">📊 RGui</span>
+                <span class="menu-item">File</span>
+                <span class="menu-item">Edit</span>
+                <span class="menu-item">Packages</span>
+                <span class="menu-item">Windows</span>
+                <span class="menu-item">Help</span>
+            </div>
+            <div class="menu-right">
+                <span class="version-badge">R 4.6.3</span>
+            </div>
+        </div>
+
+        <!-- Toolbar -->
+        <div class="toolbar">
+            <button class="tool-btn" title="New Script">📄</button>
+            <button class="tool-btn" title="Open">📁</button>
+            <button class="tool-btn" title="Save">💾</button>
+            <div class="separator"></div>
+            <button class="tool-btn" title="Run">▶️</button>
+            <button class="tool-btn" title="Stop">⏹️</button>
+            <div class="separator"></div>
+            <button class="tool-btn" title="Help">❓</button>
+        </div>
+
+        <!-- Split Layout -->
+        <div class="split-container">
+            <!-- Left Side: Console -->
+            <div class="console-panel">
+                <div class="panel-header">
+                    <span class="panel-title">R Console</span>
+                    <div class="panel-controls">
+                        <button class="panel-btn" title="Clear Console">🗑️</button>
+                    </div>
+                </div>
+                <div class="console-content">
+                    <pre class="console-text">R version 4.6.3 (2024-03-13 ucrt) -- "Measured Researcher"
+Copyright (C) 2024 The R Foundation for Statistical Computing
+Platform: x64_x64-w64-mingw32/x64
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+<span class="prompt">&gt;</span> <span class="comment"># Welcome to R Programming Practicals</span>
+<span class="prompt">&gt;</span> <span class="comment"># 11 practical exercises available</span>
+<span class="prompt">&gt;</span> 
+<span class="prompt">&gt;</span> <span class="code">print("Ready to start learning!")</span>
+[1] "Ready to start learning!"
+<span class="prompt">&gt;</span> <span class="cursor">█</span></pre>
+                </div>
+            </div>
+
+            <!-- Resizer -->
+            <div class="resizer" id="resizer"></div>
+
+            <!-- Right Side: Editor -->
+            <div class="editor-panel">
+                <div class="panel-header">
+                    <span class="panel-title">📝 Untitled - R Editor</span>
+                    <div class="panel-controls">
+                        <button class="panel-btn" title="Run Code">▶️</button>
+                    </div>
+                </div>
+                <div class="editor-content">
+                    <div class="line-numbers" id="lineNumbers">
+                        <span>1</span>
+                        <span>2</span>
+                        <span>3</span>
+                        <span>4</span>
+                        <span>5</span>
+                        <span>6</span>
+                        <span>7</span>
+                        <span>8</span>
+                        <span>9</span>
+                        <span>10</span>
+                        <span>11</span>
+                        <span>12</span>
+                        <span>13</span>
+                        <span>14</span>
+                        <span>15</span>
+                        <span>16</span>
+                        <span>17</span>
+                    </div>
+                    <pre class="code-editor"><span class="comment"># Linear Regression Example</span>
+<span class="comment"># Practical 10: Manual calculation of regression coefficients</span>
+
+<span class="variable">x</span> <span class="operator">&lt;-</span> <span class="function">c</span>(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>)
+<span class="variable">y</span> <span class="operator">&lt;-</span> <span class="function">c</span>(<span class="number">7</span>,<span class="number">9</span>,<span class="number">11</span>,<span class="number">13</span>,<span class="number">15</span>)
+
+<span class="variable">n</span> <span class="operator">&lt;-</span> <span class="function">length</span>(<span class="variable">x</span>)
+
+<span class="variable">sumx</span> <span class="operator">&lt;-</span> <span class="function">sum</span>(<span class="variable">x</span>)
+<span class="variable">sumy</span> <span class="operator">&lt;-</span> <span class="function">sum</span>(<span class="variable">y</span>)
+
+<span class="variable">sumxy</span> <span class="operator">&lt;-</span> <span class="function">sum</span>(<span class="variable">x</span> <span class="operator">*</span> <span class="variable">y</span>)
+<span class="variable">sumx2</span> <span class="operator">&lt;-</span> <span class="function">sum</span>(<span class="variable">x</span><span class="operator">^</span><span class="number">2</span>)
+
+<span class="variable">b</span> <span class="operator">&lt;-</span> (<span class="variable">n</span> <span class="operator">*</span> <span class="variable">sumxy</span> <span class="operator">-</span> <span class="variable">sumx</span> <span class="operator">*</span> <span class="variable">sumy</span>) <span class="operator">/</span> (<span class="variable">n</span> <span class="operator">*</span> <span class="variable">sumx2</span> <span class="operator">-</span> <span class="variable">sumx</span><span class="operator">^</span><span class="number">2</span>)
+<span class="variable">a</span> <span class="operator">&lt;-</span> (<span class="variable">sumy</span> <span class="operator">-</span> <span class="variable">b</span> <span class="operator">*</span> <span class="variable">sumx</span>) <span class="operator">/</span> <span class="variable">n</span>
+
+<span class="function">cat</span>(<span class="string">"Linear Regression between y and x is: y ="</span>, <span class="variable">a</span>, <span class="string">"+"</span>, <span class="variable">b</span>, <span class="string">"x"</span>)</pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Action Bar -->
+        <div class="action-bar">
+            <div class="action-left">
+                <button class="action-btn primary" onclick="window.location.href='index.html'">
+                    <span class="btn-icon">📚</span>
+                    Open All Practicals
+                </button>
+                <button class="action-btn secondary" onclick="toggleHelp()">
+                    <span class="btn-icon">ℹ️</span>
+                    View Practical List
+                </button>
+            </div>
+            <div class="action-right">
+                <span class="status-text">Ready | 11 Practicals Available</span>
+            </div>
+        </div>
+
+        <!-- Help Panel (Hidden by default) -->
+        <div class="help-panel" id="helpPanel">
+            <div class="help-header">
+                <h3>📖 Available R Programming Practicals</h3>
+                <button class="close-help" onclick="toggleHelp()">×</button>
+            </div>
+            <div class="help-content">
+                <div class="practical-grid">
+                    <div class="practical-item">
+                        <span class="practical-num">1</span>
+                        <span class="practical-name">Basic Syntax & Data Types</span>
+                    </div>
+                    <div class="practical-item">
+                        <span class="practical-num">2</span>
+                        <span class="practical-name">Functions & Data Structures</span>
+                    </div>
+                    <div class="practical-item">
+                        <span class="practical-num">3</span>
+                        <span class="practical-name">Matrix Operations</span>
+                    </div>
+                    <div class="practical-item">
+                        <span class="practical-num">4</span>
+                        <span class="practical-name">Descriptive Statistics</span>
+                    </div>
+                    <div class="practical-item">
+                        <span class="practical-num">5</span>
+                        <span class="practical-name">CSV Data Analysis</span>
+                    </div>
+                    <div class="practical-item">
+                        <span class="practical-num">6</span>
+                        <span class="practical-name">Skewness Calculation</span>
+                    </div>
+                    <div class="practical-item">
+                        <span class="practical-num">7</span>
+                        <span class="practical-name">Hypothesis Testing</span>
+                    </div>
+                    <div class="practical-item">
+                        <span class="practical-num">8A</span>
+                        <span class="practical-name">Binomial Distribution</span>
+                    </div>
+                    <div class="practical-item">
+                        <span class="practical-num">8B</span>
+                        <span class="practical-name">Normal Distribution</span>
+                    </div>
+                    <div class="practical-item">
+                        <span class="practical-num">9</span>
+                        <span class="practical-name">Correlation & Regression</span>
+                    </div>
+                    <div class="practical-item">
+                        <span class="practical-num">10</span>
+                        <span class="practical-name">Manual Regression Calculation</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="landing.js"></script>
+</body>
+</html>

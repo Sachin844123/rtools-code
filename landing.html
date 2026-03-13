@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R Programming Practicals</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="themeToggle" title="Toggle Dark Mode">🌙</button>
+
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h3>Practicals</h3>
+            <button class="toggle-btn" id="toggleBtn">☰</button>
+        </div>
+        <div class="search-container">
+            <input type="text" class="search-box" id="searchBox" placeholder="Search practicals...">
+        </div>
+        <nav class="sidebar-nav">
+            <a href="#practical1" class="nav-link" data-practical="practical 1 basic syntax">Practical 1</a>
+            <a href="#practical2" class="nav-link" data-practical="practical 2 functions data">Practical 2</a>
+            <a href="#practical3" class="nav-link" data-practical="practical 3 matrix operations">Practical 3</a>
+            <a href="#practical4" class="nav-link" data-practical="practical 4 statistics">Practical 4</a>
+            <a href="#practical5" class="nav-link" data-practical="practical 5 csv analysis">Practical 5</a>
+            <a href="#practical6" class="nav-link" data-practical="practical 6 skewness">Practical 6</a>
+            <a href="#practical7" class="nav-link" data-practical="practical 7 hypothesis testing">Practical 7</a>
+            <a href="#practical8a" class="nav-link" data-practical="practical 8a binomial distribution">Practical 8A</a>
+            <a href="#practical8b" class="nav-link" data-practical="practical 8b normal distribution">Practical 8B</a>
+            <a href="#practical9" class="nav-link" data-practical="practical 9 correlation">Practical 9</a>
+            <a href="#practical10" class="nav-link" data-practical="practical 10 regression">Practical 10</a>
+        </nav>
+    </aside>
+
+    <header>
+        <div class="container">
+            <h1>R Programming Practicals</h1>
+            <p>Complete collection of R programming exercises with code examples</p>
+        </div>
+    </header>
+
+    <main class="container main-content">
+        <!-- Practical 1 -->
+        <section class="practical-card" id="practical1">
+            <div class="practical-header">
+                <h2>Practical 1</h2>
+                <button class="copy-btn" onclick="copyCode('code1')">
+                    <span class="copy-icon">📋</span> Copy Code
+                </button>
+            </div>
+            <div class="question">
+                <strong>Question:</strong> Write R programs to demonstrate basic syntax, data types, conditional statements (if-else), loops (for, while), and check if a number is even or odd.
+            </div>
+            <pre><code id="code1" class="clickable-code" onclick="copyCodeOnClick('code1')"># Basic Syntax Example
+
+a <- 10
+b <- 5
+
+sum <- a + b
+difference <- a - b
+quotient <- a / b
+product <- a * b
+
+print(sum)
+print(difference)
+print(quotient)
+print(product)
+
+
+# Data type examples
+
+num <- 25
+float <- 3.1415
+char <- "R Programming"
+logic <- TRUE
+comp <- 2+3i
+
+print(num)
+print(float)
+print(char)
+print(logic)
+print(comp)
+
+class(num)
+class(float)
+class(char)
+class(logic)
+class(comp)
+
+
+# if statement
+marks <- 85
+
+if (marks >= 50) {
+  print("Pass")
+}
+
+
+# if-else
+marks <- 40
+
+if (marks >= 50) {
+  print("Pass")
+} else {
+  print("Fail")
+}
+
+
+#for loop
+for (i in 1:5) {
+  print(i)
+}
+
+#while loop
+i <- 1
+
+while (i <= 5) {
+  print(i)
+  i <- i + 1
+}
+
+
+# even odd
+num <- 9
+if(num %% 2 == 0){
+    print("Even Number")
+}else{
+    print("ODD Number")
+}
+</code></pre>
+        </section>
+
+        <!-- Practical 2 -->
+        <section class="practical-card" id="practical2">
+            <div class="practical-header">
+                <h2>Practical 2</h2>
+                <button class="copy-btn" onclick="copyCode('code2')">
+                    <span class="copy-icon">📋</span> Copy Code
+                </button>
+            </div>
+            <div class="question">
+                <strong>Question:</strong> Create user-defined functions in R to calculate square of a number, add two numbers, and find factorial. Demonstrate vector operations and create data frames and matrices.
+            </div>
+            <pre><code id="code2" class="clickable-code" onclick="copyCodeOnClick('code2')"># Syntax (User Defined function)
+function_name <- function(parameters){
+   statements
+   return(value)
+}
+
+#ex 1: square of num
+square <- function(x) {
+  result <- x^2
+  return(result)
+}
+
+num <- 5
+answer <- square(num)
+
+print(answer)
+
+# ex 2: add two  numbers
+add <- function(a,b){
+    return(a + b)
+}
+
+a <- 10
+b <- 20
+result <- add(a,b)
+print(result)
+
+
+# ex 3: print factorial
+factorial <- function(num){
+    fact <- 1
+    for(i in 1:num){
+        fact <- fact * i
+    }
+    return(fact)
+}
+num <- 5
+ans <- factorial(num)
+print(ans)
+
+
+
+# vecotrs operations
+#Syntax: vector_name <- c(values)
+numbers <- c(10, 20, 30, 40, 50)
+print(numbers)
+# Access element
+print(numbers[3])
+
+# two vector operations
+v1 <- c(2,4,6,8)
+v2 <- c(1,3,5,7)
+
+print(v1 + v2)
+print(v1 - v2)
+print(v1 * v2)
+print(v1 / v2)
+print(sum(v1))
+print(mean(v2))
+print(max(v1))
+print(min(v2))
+
+# Data Frame
+# Syntax:  data.frame(column1, column2, column3)
+
+students <- data.frame(
+  name = c("Amit","Riya","Rahul"),
+  age = c(21,20,22),
+  marks = c(85,90,78)
+)
+
+print(students)
+
+#ex: student data
+st_id <- c(101,102,103,104)
+st_name <- c("A", "B", "C", "D")
+st_marks <- c(70, 35, 20, 10)
+result_status <- c("PASS", "FAIL", "FAIL", "FAIL")
+
+df <- data.frame(st_id, st_name, st_marks, result_status)
+print(df)
+
+# accessing specific column
+df$st_marks
+
+
+# Matrix
+# Syntax: matrix(data, nrow, ncol, byrow/bycol)
+mat <- matrix(c(1,2,3,4,5,6), nrow=2, ncol=3, byrow = TRUE)
+
+print(mat)
+</code></pre>
+        </section>
+
+        <!-- Practical 3 -->
+        <section class="practical-card" id="practical3">
+            <div class="practical-header">
+                <h2>Practical 3</h2>
+                <button class="copy-btn" onclick="copyCode('code3')">
+                    <span class="copy-icon">📋</span> Copy Code
+                </button>
+            </div>
+            <div class="question">
+                <strong>Question:</strong> Perform matrix operations in R including addition, subtraction, multiplication, transpose, determinant, and inverse of matrices.
+            </div>
+            <pre><code id="code3" class="clickable-code" onclick="copyCodeOnClick('code3')"># Create two 3x3 matrices
+A <- matrix(c(1,2,0,4,10,15,7,8,9), nrow=3, ncol=3, byrow = TRUE)
+B <- matrix(c(9,8,7,6,5,4,3,2,1), nrow=3, ncol=3, byrow = TRUE)
+
+print(A)
+print(B)
+
+# Addition
+add <- A + B
+print(add)
+
+# Subtraction
+sub <- A - B
+print(sub)
+
+# Multiplication
+mul <- A %*% B
+print(mul)
+
+# Transpose
+transposeA <- t(A)
+print(transposeA)
+
+# Determinant
+detA <- det(A)
+print(detA)
+
+# Inverse
+invA <- solve(A)
+print(invA)
+</code></pre>
+        </section>
+
+        <!-- Practical 4 -->
+        <section class="practical-card" id="practical4">
+            <div class="practical-header">
+                <h2>Practical 4</h2>
+                <button class="copy-btn" onclick="copyCode('code4')">
+                    <span class="copy-icon">📋</span> Copy Code
+                </button>
+            </div>
+            <div class="question">
+                <strong>Question:</strong> Calculate descriptive statistics (mean, median, mode, quartiles, range, IQR) for a dataset and create a histogram to visualize the data distribution.
+            </div>
+            <pre><code id="code4" class="clickable-code" onclick="copyCodeOnClick('code4')"># Create data
+data <- c(12, 15, 18, 20, 22, 25, 30, 35, 40, 45)
+
+print(data)
+
+# Mean
+print(mean(data))
+
+# Median
+print(median(data))
+
+# Mode (custom function)
+mode_fun <- function(x){
+  uniq <- unique(x)
+  uniq[which.max(tabulate(match(x, uniq)))]
+}
+
+print(mode_fun(data))
+
+# Quartiles
+print(quantile(data))
+
+# Range
+print(range(data))
+
+# Interquartile Range (IQR)
+print(IQR(data))
+
+# Histogram
+hist(data,
+     main="Histogram of Data",
+     xlab="Values",
+     ylab="Frequency",
+     )
+</code></pre>
+        </section>
+
+        <!-- Practical 5 -->
+        <section class="practical-card" id="practical5">
+            <div class="practical-header">
+                <h2>Practical 5</h2>
+                <button class="copy-btn" onclick="copyCode('code5')">
+                    <span class="copy-icon">📋</span> Copy Code
+                </button>
+            </div>
+            <div class="question">
+                <strong>Question:</strong> Load student data from a CSV file and calculate statistical measures including standard deviation, variance, and covariance between different variables.
+            </div>
+            <pre><code id="code5" class="clickable-code" onclick="copyCodeOnClick('code5')">#  Sample Excel Data (10 Records)
+
+# Create this table in Excel.
+
+# | SrNo | Name  | Roll | Marks |
+# | ---- | ----- | ---- | ----- |
+# | 1    | Amit  | 101  | 78    |
+# | 2    | Riya  | 102  | 85    |
+# | 3    | Rahul | 103  | 67    |
+# | 4    | Sneha | 104  | 90    |
+# | 5    | Karan | 105  | 72    |
+# | 6    | Pooja | 106  | 88    |
+# | 7    | Neha  | 107  | 76    |
+# | 8    | Arjun | 108  | 95    |
+# | 9    | Kavya | 109  | 69    |
+# | 10   | Mohit | 110  | 80    |
+
+# Save file as: student_data.csv
+
+# Load CSV file
+data <- read.csv("student_data.csv")
+# Display data
+print(data)
+
+sd(data$Marks)  # Standard Devitaion
+sd(data$Roll)   # Standard Deviation
+var(data$Marks)  # Variance
+var(data$Roll)   # variance
+cov(data$Roll, data$Marks)  # Covariance
+</code></pre>
+        </section>
+
+        <!-- Practical 6 -->
+        <section class="practical-card" id="practical6">
+            <div class="practical-header">
+                <h2>Practical 6</h2>
+                <button class="copy-btn" onclick="copyCode('code6')">
+                    <span class="copy-icon">📋</span> Copy Code
+                </button>
+            </div>
+            <div class="question">
+                <strong>Question:</strong> Calculate Karl Pearson's coefficient of skewness for a dataset and interpret whether the distribution is symmetrical, positively skewed, or negatively skewed.
+            </div>
+            <pre><code id="code6" class="clickable-code" onclick="copyCodeOnClick('code6')"># Sample data
+data <- c(12, 15, 18, 20, 22, 25, 30, 35, 40, 45)
+
+# Calculate mean, median, sd
+mean_val <- mean(data)
+median_val <- median(data)
+sd_val <- sd(data)
+
+# Karl Pearson Skewness
+skewness <- (3 * (mean_val - median_val)) / sd_val
+print(skewness)
+# Interpretation using if-else
+if(skewness == 0){
+  print("Symmetrical Distribution")
+}else if(skewness > 0){
+  print("Positive Skewness")
+}else{
+  print("Negative Skewness")
+}
+</code></pre>
+        </section>
+
+        <!-- Practical 7 -->
+        <section class="practical-card" id="practical7">
+            <div class="practical-header">
+                <h2>Practical 7</h2>
+                <button class="copy-btn" onclick="copyCode('code7')">
+                    <span class="copy-icon">📋</span> Copy Code
+                </button>
+            </div>
+            <div class="question">
+                <strong>Question:</strong> Perform hypothesis testing to verify if the average mathematics score of students differs from 70 at 5% significance level using t-test.
+            </div>
+            <pre><code id="code7" class="clickable-code" onclick="copyCodeOnClick('code7')"># A college claims that the average mathematics score of students is 70.
+# To verify this claim, a random sample of students' marks is stored in a file.
+
+# Marks:
+
+# 68, 72, 75, 70, 69,
+# 71, 74, 73, 67, 66,
+# 72, 71, 69, 70, 68,
+# 74, 76, 73, 69, 70
+
+# At the 5% level of significance, test whether the population mean score differs from 70 using hypothesis testing.
+
+
+# Load data
+data <- read.csv(file.choose())
+
+# Extract marks column
+marks <- data$Marks
+
+# Sample size
+n <- length(marks)
+
+# Population mean
+mu <- 70
+
+# Standard deviation
+s <- sd(marks)
+
+# Sample mean
+x_bar <- mean(marks)
+
+# Calculate test statistic
+t_value <- (x_bar - mu) / (s / sqrt(n))
+
+print(t_value)
+
+# Critical value for 5% significance
+critical <- 1.96
+
+# Decision using if else
+if(t_value < -critical){
+    print("Average marks of students is less than 70")
+}else{
+    if(t_value > critical){
+        print("Average marks of students is greater than 70")
+    }else{
+        print("Claim of college is accepted and average marks of students is 70")
+    }
+}
+</code></pre>
+        </section>
+
+        <!-- Practical 8A -->
+        <section class="practical-card" id="practical8a">
+            <div class="practical-header">
+                <h2>Practical 8A</h2>
+                <button class="copy-btn" onclick="copyCode('code8a')">
+                    <span class="copy-icon">📋</span> Copy Code
+                </button>
+            </div>
+            <div class="question">
+                <strong>Question:</strong> Apply binomial distribution to find probabilities for defective bulbs: exactly 2 defective, at least 7 defective, and at most 3 defective out of 10 bulbs.
+            </div>
+            <pre><code id="code8a" class="clickable-code" onclick="copyCodeOnClick('code8a')"># A factory produces bulbs, and the probability that a bulb is defective is 0.1.
+
+# If 10 bulbs are selected at random, find:
+
+# 1️⃣ Probability that exactly 2 bulbs are defective
+# 2️⃣ Probability that at least 7 bulbs are defective
+# 3️⃣ Probability that at most 3 bulbs are defective
+
+
+# Given values
+n <- 10
+p <- 0.1
+
+# 1️⃣ Probability that exactly 2 bulbs are defective
+prob1 <- dbinom(2, size = n, prob = p)
+cat("Probability that exactly 2 bulbs are defective =", prob1, "\n")
+
+# 2️⃣ Probability that at least 7 bulbs are defective
+prob2 <- 1 - pbinom(6,n,p)
+cat("Probability that at least 7 bulbs are defective =", prob2, "\n")
+
+# 3️⃣ Probability that at most 3 bulbs are defective
+prob3 <- pbinom(3, size = n, prob = p)
+cat("Probability that at most 3 bulbs are defective =", prob3)
+</code></pre>
+        </section>
+
+        <!-- Practical 8B -->
+        <section class="practical-card" id="practical8b">
+            <div class="practical-header">
+                <h2>Practical 8B</h2>
+                <button class="copy-btn" onclick="copyCode('code8b')">
+                    <span class="copy-icon">📋</span> Copy Code
+                </button>
+            </div>
+            <div class="question">
+                <strong>Question:</strong> Use normal distribution to calculate probabilities for student exam scores: exactly 75 marks, at least 85 marks, and at most 60 marks.
+            </div>
+            <pre><code id="code8b" class="clickable-code" onclick="copyCodeOnClick('code8b')"># The marks obtained by students in a competitive exam are normally distributed with:
+
+# Mean 𝜇 = 70
+# Standard deviation
+# 𝜎 = 8
+
+# Find the probability that a randomly selected student:
+
+# 1️⃣ Scores exactly 75 marks
+# 2️⃣ Scores at least 85 marks
+# 3️⃣ Scores at most 60 marks
+
+mean <- 70
+sd <- 8
+
+exact_75 <- dnorm(75, mean, sd)
+atleast_85 <- 1 - pnorm(85, mean, sd)
+atmost_60 <- pnorm(60, mean, sd)
+
+cat("Probability of scoring exactly 75 marks =", exact_75, "\n")
+cat("Probability of scoring at least 85 marks =", atleast_85, "\n")
+cat("Probability of scoring at most 60 marks =", atmost_60)
+</code></pre>
+        </section>
+
+        <!-- Practical 9 -->
+        <section class="practical-card" id="practical9">
+            <div class="practical-header">
+                <h2>Practical 9</h2>
+                <button class="copy-btn" onclick="copyCode('code9')">
+                    <span class="copy-icon">📋</span> Copy Code
+                </button>
+            </div>
+            <div class="question">
+                <strong>Question:</strong> Calculate correlation between study hours and marks, create a linear regression model, and visualize the relationship using a scatter plot.
+            </div>
+            <pre><code id="code9" class="clickable-code" onclick="copyCodeOnClick('code9')">x <- c(2,4,6,8,10)
+y <- c(50,60,65,80,85)
+
+# Correlation
+cor(x,y)
+
+# Linear regression model
+model <- lm(y ~ x)
+
+# Summary of model
+summary(model)
+
+# Regression coefficients
+coef(model)
+
+# Scatter plot
+plot(x, y,
+     main = "Study Hours vs Marks",
+     xlab = "Hours of Study",
+     ylab = "Marks Obtained"
+)
+</code></pre>
+        </section>
+
+        <!-- Practical 10 -->
+        <section class="practical-card" id="practical10">
+            <div class="practical-header">
+                <h2>Practical 10</h2>
+                <button class="copy-btn" onclick="copyCode('code10')">
+                    <span class="copy-icon">📋</span> Copy Code
+                </button>
+            </div>
+            <div class="question">
+                <strong>Question:</strong> Manually calculate linear regression coefficients (slope and intercept) using mathematical formulas and display the regression equation.
+            </div>
+            <pre><code id="code10" class="clickable-code" onclick="copyCodeOnClick('code10')">x <- c(1,2,3,4,5)
+y <- c(7,9,11,13,15)
+
+n <- length(x)
+
+sumx <- sum(x)
+sumy <- sum(y)
+
+sumxy <- sum(x * y)
+sumx2 <- sum(x^2)
+
+b <- (n * sumxy - sumx * sumy) / (n * sumx2 - sumx^2)
+
+a <- (sumy - b * sumx) / n
+
+cat("Linear Regression between y and x is: y =", a, "+", b, "x")
+</code></pre>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 R Programming Practicals. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div id="toast" class="toast">Code copied to clipboard!</div>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTopBtn">↑</button>
+
+    <script src="script.js"></script>
+</body>
+</html>
